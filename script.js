@@ -1,112 +1,87 @@
-const gardenArea = document.querySelector('.garden-area');
-const scoreDisplay = document.getElementById('score');
-let score = 0;
-
-// Fungsi untuk menanam bibit
-document.getElementById('plant-seed').addEventListener('click', () => {
-  const plant = document.createElement('div');
-  plant.classList.add('plant');
-  plant.innerHTML = '<img src="seed.png" alt="Seed">';
-  gardenArea.appendChild(plant);
-});
-
-// Fungsi untuk menyiram tanaman
-document.getElementById('water-plant').addEventListener('click', () => {
-  const plants = document.querySelectorAll('.plant');
-  plants.forEach(plant => {
-    plant.innerHTML = '<img src="watered-plant.png" alt="Watered Plant">';
-  });
-});
-
-// Fungsi untuk memupuk tanaman
-document.getElementById('add-fertilizer').addEventListener('click', () => {
-  const plants = document.querySelectorAll('.plant');
-  plants.forEach(plant => {
-    plant.innerHTML = '<img src="fertilized-plant.png" alt="Fertilized Plant">';
-    score += 10;
-    scoreDisplay.textContent = score;
-  });
-});
-
-// Musik latar
-const backgroundMusic = document.getElementById('background-music');
-backgroundMusic.play();
-
-let waterTimer;
-
-function startWaterTimer(plant) {
-  waterTimer = setTimeout(() => {
-    plant.innerHTML = '<img src="withered-plant.png" alt="Withered Plant">';
-  }, 30000); // 30 detik untuk contoh
-}
-
-document.getElementById('water-plant').addEventListener('click', () => {
-  const plants = document.querySelectorAll('.plant');
-  plants.forEach(plant => {
-    plant.innerHTML = '<img src="watered-plant.png" alt="Watered Plant">';
-    clearTimeout(waterTimer); // Reset timer
-    startWaterTimer(plant); // Mulai timer lagi
-  });
-});
-
+// Inisialisasi Variabel
 let day = 1;
-let dayTimer;
+let time = "10:00";
+let coin = 10;
+let isPaused = false;
+let waterQuantity = 0;
+let seedQuantity = 0;
+let fertilizerQuantity = 0;
 
-function startDayTimer() {
-  dayTimer = setInterval(() => {
-    day++;
-    document.getElementById('day-counter').textContent = `Day: ${day}`;
-    changeWeather(); // Panggil fungsi untuk mengubah cuaca
-  }, 600000); // 10 menit = 600.000 milidetik
+// Elemen DOM
+const dayCounter = document.getElementById('day-counter');
+const timeDisplay = document.getElementById('time');
+const coinDisplay = document.getElementById('coin');
+const waterQuantityDisplay = document.getElementById('water-quantity');
+const seedQuantityDisplay = document.getElementById('seed-quantity');
+const fertilizerQuantityDisplay = document.getElementById('fertilizer-quantity');
+const pauseResumeBtn = document.getElementById('pause-resume-btn');
+const pauseResumeIcon = document.getElementById('pause-resume-icon');
+
+// Timer untuk hari dan waktu
+function startGameTimers() {
+  setInterval(() => {
+    if (!isPaused) {
+      // Update waktu setiap 2 detik (24 jam/hari)
+      const [hours, minutes] = time.split(':');
+      let newHours = parseInt(hours) + 1;
+      if (newHours >= 24) newHours = 0;
+      time = `${newHours.toString().padStart(2, '0')}:${minutes}`;
+      timeDisplay.textContent = time;
+
+      // Update hari setiap 48 detik
+      if (newHours === 0) {
+        day++;
+        dayCounter.textContent = `DAY - ${day}`;
+      }
+    }
+  }, 2000); // 2 detik untuk waktu
 }
 
-// Tampilkan hari di HTML
-document.body.innerHTML += `<div id="day-counter">Day: ${day}</div>`;
-startDayTimer();
+// Fungsi untuk pause/resume game
+pauseResumeBtn.addEventListener('click', () => {
+  isPaused = !isPaused;
+  pauseResumeIcon.src = isPaused ? 'resume-icon.png' : 'pause-icon.png';
+});
+
+// Fungsi untuk membeli item
+document.getElementById('buy-water').addEventListener('click', () => {
+  if (coin >= 1) {
+    coin -= 1;
+    waterQuantity += 1;
+    updateDisplay();
+  } else {
+    alert("Not enough coins!");
+  }
+});
 
 document.getElementById('buy-seed').addEventListener('click', () => {
-  if (score >= 10) {
-    score -= 10;
-    scoreDisplay.textContent = score;
-    // Tambahkan bibit ke inventory atau langsung tanam
+  if (coin >= 2) {
+    coin -= 2;
+    seedQuantity += 1;
+    updateDisplay();
   } else {
-    alert("Not enough points!");
+    alert("Not enough coins!");
   }
 });
 
 document.getElementById('buy-fertilizer').addEventListener('click', () => {
-  if (score >= 20) {
-    score -= 20;
-    scoreDisplay.textContent = score;
-    // Tambahkan pupuk ke inventory
+  if (coin >= 1) {
+    coin -= 1;
+    fertilizerQuantity += 1;
+    updateDisplay();
   } else {
-    alert("Not enough points!");
+    alert("Not enough coins!");
   }
 });
 
-const weatherConditions = ['sunny', 'cloudy', 'rainy'];
-let currentWeather;
-
-function changeWeather() {
-  currentWeather = weatherConditions[Math.floor(Math.random() * weatherConditions.length)];
-  document.getElementById('weather').textContent = `Weather: ${currentWeather}`;
-  applyWeatherEffects(); // Terapkan efek cuaca pada tanaman
+// Fungsi untuk update tampilan
+function updateDisplay() {
+  coinDisplay.textContent = coin;
+  waterQuantityDisplay.textContent = waterQuantity;
+  seedQuantityDisplay.textContent = seedQuantity;
+  fertilizerQuantityDisplay.textContent = fertilizerQuantity;
 }
 
-function applyWeatherEffects() {
-  const plants = document.querySelectorAll('.plant');
-  plants.forEach(plant => {
-    if (currentWeather === 'rainy') {
-      // Tanaman otomatis disiram saat hujan
-      plant.innerHTML = '<img src="watered-plant.png" alt="Watered Plant">';
-    } else if (currentWeather === 'sunny') {
-      // Tanaman lebih cepat layu saat panas
-      clearTimeout(waterTimer);
-      startWaterTimer(plant, 15000); // 15 detik untuk contoh
-    }
-  });
-}
-
-// Tampilkan cuaca di HTML
-document.body.innerHTML += `<div id="weather">Weather: ${currentWeather}</div>`;
-changeWeather(); // Set cuaca awal
+// Inisialisasi Awal
+startGameTimers();
+updateDisplay();
