@@ -3,30 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital Garden Game</title>
+  <title>Digital Garden</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="game-container">
-      <h1>Digital Garden</h1>
-      <div id="day-counter">Day: 1</div>
-      <div id="weather">Weather: sunny</div>
-      <div class="garden-area"></div>
-      <div class="controls">
-        <button id="plant-seed">Plant Seed</button>
-        <button id="water-plant">Water Plant</button>
-        <button id="add-fertilizer">Add Fertilizer</button>
-      </div>
-      <div class="score">Score: <span id="score">0</span></div>
-      <div class="shop">
-        <h2>Shop</h2>
-        <button id="buy-seed">Buy Seed (10 Points)</button>
-        <button id="buy-fertilizer">Buy Fertilizer (20 Points)</button>
-      </div>
-      <audio id="background-music" loop>
-        <source src="music.mp3" type="audio/mpeg">
-      </audio>
+  <div class="game-container">
+    <!-- Logo Game -->
+    <div class="logo">
+      <img src="logo.png" alt="Digital Garden Logo">
     </div>
+
+    <!-- Day & Time -->
+    <div class="card day-time">
+      <div id="day-counter">DAY - 1</div>
+      <div id="time">10:00</div>
+    </div>
+
+    <!-- Coin Display -->
+    <div class="card coin-display">
+      <img src="coin-icon.png" alt="Coin Icon">
+      <span id="coin">10</span>
+    </div>
+
+    <!-- Harvest Button -->
+    <div class="card harvest">
+      <img src="harvest-icon.png" alt="Harvest Icon">
+      <button id="harvest-btn">Harvest</button>
+    </div>
+
+    <!-- Water Plant Button -->
+    <div class="card water-plant">
+      <img src="water-icon.png" alt="Water Icon">
+      <button id="water-btn">Water Plant</button>
+      <span id="water-quantity">0</span>
+    </div>
+
+    <!-- Plant Seed Button -->
+    <div class="card plant-seed">
+      <img src="seed-icon.png" alt="Seed Icon">
+      <button id="plant-btn">Plant Seed</button>
+      <span id="seed-quantity">0</span>
+    </div>
+
+    <!-- Fertilizer Button -->
+    <div class="card fertilizer">
+      <img src="fertilizer-icon.png" alt="Fertilizer Icon">
+      <button id="fertilizer-btn">Fertilizer</button>
+      <span id="fertilizer-quantity">0</span>
+    </div>
+
+    <!-- Pause/Resume Button -->
+    <div class="card pause-resume">
+      <button id="pause-resume-btn">
+        <img src="pause-icon.png" alt="Pause Icon" id="pause-resume-icon">
+      </button>
+    </div>
+
+    <!-- Shop -->
+    <div class="card shop">
+      <h2>SHOP</h2>
+      <button id="buy-water">Buy Water (1 Coin)</button>
+      <button id="buy-seed">Buy Seed (2 Coins)</button>
+      <button id="buy-fertilizer">Buy Fertilizer (1 Coin)</button>
+    </div>
+
+    <!-- Garden Area -->
+    <div class="garden-area">
+      <div class="soil" data-state="empty"></div>
+      <div class="soil" data-state="empty"></div>
+      <div class="soil" data-state="empty"></div>
+      <div class="soil" data-state="empty"></div>
+      <div class="soil" data-state="empty"></div>
+      <div class="soil" data-state="empty"></div>
+      <div class="soil" data-state="empty"></div>
+      <div class="soil" data-state="empty"></div>
+      <div class="soil" data-state="empty"></div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="background-music" loop>
+      <source src="https://opengameart.org/sites/default/files/audio_preview/8bit%20Bossa.mp3.ogg" type="audio/mpeg">
+    </audio>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
