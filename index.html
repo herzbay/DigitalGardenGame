@@ -13,54 +13,57 @@
       <img src="logo.png" alt="Digital Garden Logo">
     </div>
 
+    <div class="title">DIGITAL GARDEN</div>
+
     <!-- Day & Time -->
-    <div class="card day-time">
+    <div class="day-time">
       <div id="day-counter">DAY - 1</div>
       <div id="time">10:00</div>
     </div>
 
     <!-- Coin Display -->
-    <div class="card coin-display">
+    <div class="coin-display">
       <img src="coin-icon.png" alt="Coin Icon">
       <span id="coin">10</span>
     </div>
 
     <!-- Harvest Button -->
-    <div class="card harvest">
+    <div class="harvest">
       <img src="harvest-icon.png" alt="Harvest Icon">
       <button id="harvest-btn">Harvest</button>
+      <div class="quantity" id="harvest-quantity">0</div>
     </div>
 
     <!-- Water Plant Button -->
-    <div class="card water-plant">
+    <div class="water-plant">
       <img src="water-icon.png" alt="Water Icon">
       <button id="water-btn">Water Plant</button>
-      <span id="water-quantity">0</span>
+      <div class="quantity" id="water-quantity">0</div>
     </div>
 
     <!-- Plant Seed Button -->
-    <div class="card plant-seed">
+    <div class="plant-seed">
       <img src="seed-icon.png" alt="Seed Icon">
       <button id="plant-btn">Plant Seed</button>
-      <span id="seed-quantity">0</span>
+      <div class="quantity" id="seed-quantity">0</div>
     </div>
 
     <!-- Fertilizer Button -->
-    <div class="card fertilizer">
+    <div class="fertilizer">
       <img src="fertilizer-icon.png" alt="Fertilizer Icon">
       <button id="fertilizer-btn">Fertilizer</button>
-      <span id="fertilizer-quantity">0</span>
+      <div class="quantity" id="fertilizer-quantity">0</div>
     </div>
 
     <!-- Pause/Resume Button -->
-    <div class="card pause-resume">
+    <div class="pause-resume">
       <button id="pause-resume-btn">
         <img src="pause-icon.png" alt="Pause Icon" id="pause-resume-icon">
       </button>
     </div>
 
     <!-- Shop -->
-    <div class="card shop">
+    <div class="shop">
       <h2>SHOP</h2>
       <button id="buy-water">Buy Water (1 Coin)</button>
       <button id="buy-seed">Buy Seed (2 Coins)</button>
@@ -79,11 +82,6 @@
       <div class="soil" data-state="empty"></div>
       <div class="soil" data-state="empty"></div>
     </div>
-
-    <!-- Background Music -->
-    <audio id="background-music" loop>
-      <source src="https://opengameart.org/sites/default/files/audio_preview/8bit%20Bossa.mp3.ogg" type="audio/mpeg">
-    </audio>
   </div>
   <script src="script.js"></script>
 </body>
