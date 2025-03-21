@@ -1,88 +1,78 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Digital Garden</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="game-container">
-    <!-- Logo Game -->
-    <div class="logo">
-      <img src="logo.png" alt="Digital Garden Logo">
-    </div>
+    <!-- Header Section -->
+    <header class="game-header">
+      <div class="logo">
+        <img src="assets/logo.png" alt="Game Logo">
+      </div>
+      <div class="game-info">
+        <div class="day-time">
+          <span id="day-counter">Day 1</span>
+          <span id="time">08:00 AM</span>
+        </div>
+        <div class="coin-display">
+          <img src="assets/coin.png" alt="Coins">
+          <span id="coins">100</span>
+        </div>
+      </div>
+    </header>
 
-    <div class="title">DIGITAL GARDEN</div>
+    <!-- Main Game Area -->
+    <main class="game-main">
+      <!-- Action Buttons -->
+      <div class="action-panel">
+        <button class="action-btn" id="harvest-btn">
+          <img src="assets/harvest.png" alt="Harvest">
+          <span class="quantity">0</span>
+        </button>
+        <!-- Tambahkan button lainnya dengan pola serupa -->
+      </div>
 
-    <!-- Day & Time -->
-    <div class="day-time">
-      <div id="day-counter">DAY - 1</div>
-      <div id="time">10:00</div>
-    </div>
+      <!-- Garden Grid -->
+      <div class="garden-grid">
+        <!-- Tile akan di-generate oleh JavaScript -->
+      </div>
 
-    <!-- Coin Display -->
-    <div class="coin-display">
-      <img src="coin-icon.png" alt="Coin Icon">
-      <span id="coin">10</span>
-    </div>
+      <!-- Shop Panel -->
+      <div class="shop-panel">
+        <h2>Shop</h2>
+        <div class="shop-items">
+          <div class="shop-item" data-item="water">
+            <img src="assets/water-can.png" alt="Water">
+            <span>1 Coin</span>
+            <button class="buy-btn">Buy</button>
+          </div>
+          <!-- Tambahkan item shop lainnya -->
+        </div>
+      </div>
+    </main>
 
-    <!-- Harvest Button -->
-    <div class="harvest">
-      <img src="harvest-icon.png" alt="Harvest Icon">
-      <button id="harvest-btn">Harvest</button>
-      <div class="quantity" id="harvest-quantity">0</div>
-    </div>
-
-    <!-- Water Plant Button -->
-    <div class="water-plant">
-      <img src="water-icon.png" alt="Water Icon">
-      <button id="water-btn">Water Plant</button>
-      <div class="quantity" id="water-quantity">0</div>
-    </div>
-
-    <!-- Plant Seed Button -->
-    <div class="plant-seed">
-      <img src="seed-icon.png" alt="Seed Icon">
-      <button id="plant-btn">Plant Seed</button>
-      <div class="quantity" id="seed-quantity">0</div>
-    </div>
-
-    <!-- Fertilizer Button -->
-    <div class="fertilizer">
-      <img src="fertilizer-icon.png" alt="Fertilizer Icon">
-      <button id="fertilizer-btn">Fertilizer</button>
-      <div class="quantity" id="fertilizer-quantity">0</div>
-    </div>
-
-    <!-- Pause/Resume Button -->
-    <div class="pause-resume">
-      <button id="pause-resume-btn">
-        <img src="pause-icon.png" alt="Pause Icon" id="pause-resume-icon">
-      </button>
-    </div>
-
-    <!-- Shop -->
-    <div class="shop">
-      <h2>SHOP</h2>
-      <button id="buy-water">Buy Water (1 Coin)</button>
-      <button id="buy-seed">Buy Seed (2 Coins)</button>
-      <button id="buy-fertilizer">Buy Fertilizer (1 Coin)</button>
-    </div>
-
-    <!-- Garden Area -->
-    <div class="garden-area">
-      <div class="soil" data-state="empty"></div>
-      <div class="soil" data-state="empty"></div>
-      <div class="soil" data-state="empty"></div>
-      <div class="soil" data-state="empty"></div>
-      <div class="soil" data-state="empty"></div>
-      <div class="soil" data-state="empty"></div>
-      <div class="soil" data-state="empty"></div>
-      <div class="soil" data-state="empty"></div>
-      <div class="soil" data-state="empty"></div>
+    <!-- Control Panel -->
+    <div class="control-panel">
+      <button id="pause-btn"><i class="fas fa-pause"></i></button>
+      <button id="sound-btn"><i class="fas fa-volume-up"></i></button>
     </div>
   </div>
+
+  <!-- Dialog Box -->
+  <div class="dialog-box hidden">
+    <div class="dialog-content">
+      <h3 class="dialog-title"></h3>
+      <p class="dialog-message"></p>
+      <button class="dialog-close">OK</button>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
