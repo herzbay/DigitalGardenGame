@@ -1,254 +1,99 @@
+/* styles.css */
+:root {
+  --primary-color: #4CAF50;
+  --secondary-color: #8BC34A;
+  --accent-color: #FFC107;
+  --background-color: #F1F8E9;
+  --text-color: #2E7D32;
+}
+
 body {
-  font-family: 'Pixel', sans-serif;
-  background-color: #ff69b4;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
+  font-family: 'Press Start 2P', cursive;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .game-container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  background-image: url('background.png');
-  background-size: cover;
-  background-position: center;
-}
-
-.logo {
-  position: absolute;
-  top: 152px;
-  left: 259px;
-}
-
-.logo img {
-  width: 98px;
-  height: 98px;
-  border-radius: 50%; 
-}
-
-.title {
-  position: absolute;
-  top: 172px;
-  left: 403px;
-  background-color: #76ff03;
-  border-radius: 10px;
-  width: 446px;
-  height: 108px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 48px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.day-time {
-  position: absolute;
-  top: 148px;
-  left: 965px;
-  width: 216px;
-  height: 108px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 32px;
-  font-weight: bold;
-  background-color: #76ff03;
-}
-
-.day-time #time {
-  font-size: 20px;
-  margin-top: 10px;
-}
-
-/* Coin Display */
-.coin-display {
-  position: absolute;
-  top: 272px;
-  left: 965px;
-  width: 216px;
-  height: 80px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-size: 32px;
-  font-weight: bold;
-  background-color: #76ff03;
-}
-
-.coin-display img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%; 
-}
-
-/* Harvest Button */
-.harvest {
-  position: absolute;
-  top: 348px;
-  left: 259px;
-  width: 98px;
-  height: 98px;
-  border-radius: 50%; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #76ff03;
-}
-
-/* Water Plant Button */
-.water-plant {
-  position: absolute;
-  top: 466px;
-  left: 259px;
-  width: 98px;
-  height: 98px;
-  border-radius: 50%; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #76ff03;
-}
-
-/* Plant Seed Button */
-.plant-seed {
-  position: absolute;
-  top: 584px;
-  left: 259px;
-  width: 98px;
-  height: 98px;
-  border-radius: 50%; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #76ff03;
-}
-
-/* Fertilizer Button */
-.fertilizer {
-  position: absolute;
-  top: 702px;
-  left: 259px;
-  width: 98px;
-  height: 98px;
-  border-radius: 50%; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #76ff03;
-}
-
-/* Pause/Resume Button */
-.pause-resume {
-  position: absolute;
-  top: 277px;
-  left: 980px;
-  width: 98px;
-  height: 98px;
-  border-radius: 50%; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #76ff03;
-}
-
-.pause-resume img {
-  width: 60px;
-  height: 60px;
-}
-
-/* Shop */
-.shop {
-  position: absolute;
-  top: 480px;
-  left: 965px;
-  width: 216px;
-  height: 480px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
-  background-color: #76ff03;
 }
 
-.shop h2 {
-  font-size: 32px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin: 0;
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.shop button {
-  width: 150px;
-  height: 108px;
-  font-size: 14px;
-  border-radius: 10px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.shop button:hover {
-  background-color: #45a049;
-}
-
-/* Garden Area */
-.garden-area {
-  position: absolute;
-  top: 599px;
-  left: 568px;
-  width: 568px;
-  height: 599px;
-  border-radius: 10px;
+.garden-grid {
   display: grid;
-  grid-template-columns: repeat(3, 87px);
-  gap: 10px;
-  justify-content: center;
-  align-content: center;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
   padding: 20px;
-  background-color: #76ff03;
+  background-color: #FFF3E0;
+  border-radius: 15px;
 }
 
-.soil {
-  width: 87px;
-  height: 87px;
-  background-color: #8b4513; 
-  border: 2px solid #555;
-  border-radius: 20px; 
+.garden-tile {
+  position: relative;
+  aspect-ratio: 1;
+  background-color: #8D6E63;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
-.soil img {
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
+.garden-tile:hover {
+  transform: scale(1.05);
 }
 
-/* Quantity Item */
-.quantity {
-  width: 50px;
-  height: 30px;
-  background-color: #76ff03;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: 10px;
+.plant {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  animation: grow 0.5s ease-in-out;
+}
+
+@keyframes grow {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+.shop-panel {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+
+.action-btn {
+  background-color: var(--primary-color);
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.action-btn:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.dialog-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
 }
