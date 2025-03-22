@@ -1,99 +1,286 @@
-/* styles.css */
-:root {
-  --primary-color: #4CAF50;
-  --secondary-color: #8BC34A;
-  --accent-color: #FFC107;
-  --background-color: #F1F8E9;
-  --text-color: #2E7D32;
-}
-
 body {
-  font-family: 'Press Start 2P', cursive;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  font-family: 'Pixel', sans-serif;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .game-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.game-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background-color: white;
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.garden-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 15px;
-  padding: 20px;
-  background-color: #FFF3E0;
-  border-radius: 15px;
-}
-
-.garden-tile {
   position: relative;
-  aspect-ratio: 1;
-  background-color: #8D6E63;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.2s;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('background.png');
+  background-size: cover;
+  background-position: center;
 }
 
-.garden-tile:hover {
-  transform: scale(1.05);
-}
-
-.plant {
+/* Logo */
+.logo {
   position: absolute;
-  width: 80%;
-  height: 80%;
-  top: 10%;
-  left: 10%;
-  animation: grow 0.5s ease-in-out;
+  top: 77px; /* Jarak dari atas */
+  left: 30%; /* Posisikan di tengah horizontal */
+  transform: translateX(30%); /* Geser ke kiri dari tengah */
+  display: flex;
+  align-items: center;
 }
 
-@keyframes grow {
-  from { transform: scale(0); }
-  to { transform: scale(1); }
+.logo img {
+  width: 70px; /* Ukuran logo diperkecil */
+  height: 70px; /* Ukuran logo diperkecil */
+  border-radius: 50%; 
+  
 }
 
-.shop-panel {
-  background-color: white;
-  padding: 20px;
-  border-radius: 15px;
-  margin-top: 20px;
-}
-
-.action-btn {
-  background-color: var(--primary-color);
-  border: none;
-  padding: 15px;
+/* Title */
+.title {
+  position: absolute;
+  top: 80px; /* Jarak dari atas, sama dengan logo */
+  left: 50%; /* Posisikan di tengah horizontal */
+  transform: translateX(-50%); /* Geser ke tengah */
+  background-color: #76ff03;
   border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s;
+  padding: 10px 20px; /* Padding untuk judul */
+  font-size: 36px; /* Ukuran font */
+  font-weight: bold;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap; /* Judul tidak wrap ke baris baru */
 }
 
-.action-btn:hover {
-  background-color: var(--secondary-color);
-  transform: translateY(-2px);
+.day-time {
+  position: absolute;
+  top: 80px;
+  left: 870px;
+  padding: 6px 50px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #76ff03;
 }
 
-.dialog-box {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0,0,0,0.8);
+.day-time #time {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Coin Display */
+.coin-display {
+  position: absolute;
+  top: 118px;
+  left: 870px;
+  width: 190px;
+  height: 60px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #76ff03;
+  margin-top: 35px;
+}
+
+.coin-display img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; 
+  margin-right: 20px;
+}
+
+/* Harvest Button */
+.harvest {
+  position: absolute;
+  top: 150px;
+  left: 30%;
+  transform: translateX(30%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #76ff03;
+}
+
+/* Water Plant Button */
+.water-plant {
+  position: absolute;
+  top: 180px;
+  left: 30%;
+  transform: translateX(30%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #76ff03;
+}
+
+/* Plant Seed Button */
+.plant-seed {
+  position: absolute;
+  top: 210px;
+  left: 30%;
+  transform: translateX(30%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #76ff03;
+}
+
+/* Fertilizer Button */
+.fertilizer {
+  position: absolute;
+  top: 240px;
+  left: 30%;
+  transform: translateX(30%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #76ff03;
+}
+
+/* Pause/Resume Button */
+/* .pause-resume {
+  position: absolute;
+  top: 277px;
+  left: 980px;
+  width: 98px;
+  height: 98px;
+  border-radius: 50%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #76ff03;
+}
+
+.pause-resume img {
+  width: 60px;
+  height: 60px;
+} */
+
+/* Shop */
+.shop {
+  position: absolute;
+  top: 150px;
+  left: 870px;
+  width: 160px;
+  height: 220px;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background-color: #76ff03;
+  margin-top: 70px;
+}
+
+.shop h2 {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.shop button {
+  width: 100px;
+  height: 60px;
+  font-size: 14px;
+  border-radius: 10px;
+  background-color: #4caf50;
   color: white;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.shop button:hover {
+  background-color: #45a049;
+}
+
+/* Garden Area */
+.garden-area {
+  position: absolute;
+  top: 50%; /* Posisikan di tengah vertikal */
+  left: 50%; /* Posisikan di tengah horizontal */
+  transform: translate(-50%, -50%); /* Geser ke tengah */
+  width: 300px; /* Sesuaikan ukuran garden area */
+  height: 300px; /* Sesuaikan ukuran garden area */
+  border-radius: 20px; /* Sudut yang lebih melengkung */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 kolom dengan ukuran sama */
+  gap: 10px; /* Jarak antar petak tanah */
+  padding: 20px; /* Ruang di dalam garden area */
+  background-color: #76ff03; /* Warna latar belakang */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Efek bayangan untuk card */
+}
+
+/* Soil (Petak Tanah) */
+.soil {
+  width: 100%; /* Ukuran penuh dalam grid */
+  height: 100%; /* Ukuran penuh dalam grid */
+  background-color: #8b4513; /* Warna tanah */
+  border: 2px solid #555; /* Border tanah */
+  border-radius: 15px; /* Sudut yang lebih melengkung */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animasi hover */
+}
+
+/* Efek hover pada soil */
+.soil:hover {
+  transform: scale(1.05); /* Sedikit membesar saat dihover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Efek bayangan saat dihover */
+  cursor: pointer; /* Ubah kursor saat dihover */
+}
+
+/* Jika soil memiliki state selain "empty" */
+.soil[data-state="planted"] {
+  background-color: #4caf50; /* Warna hijau untuk tanah yang sudah ditanami */
+}
+
+.soil[data-state="watered"] {
+  background-color: #2196f3; /* Warna biru untuk tanah yang disiram */
+}
+
+.soil[data-state="fertilized"] {
+  background-color: #ffeb3b; /* Warna kuning untuk tanah yang dipupuk */
+}
+
+/* Quantity Item */
+.quantity {
+  width: 50px;
+  height: 30px;
+  background-color: #76ff03;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
 }
